@@ -13,7 +13,7 @@
         </div>
         <div class="user_block_click-chart">
             <UserBlockClickChart
-                    v-bind:heightChart=this.clickCount
+                    v-bind:heightChart=this.totalScore
             ></UserBlockClickChart>
         </div>
         <div class="user_block_click-button">

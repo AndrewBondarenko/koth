@@ -32,12 +32,12 @@
                     .append('svg')
                     .attr('width', 500)
                     .attr('height', 500)
-                    .style('background', '#d9edf7')
+                    .style('background', '#fff')
                     .append('rect')
-                    .attr('x', 100)
-                    .attr('y', 50)
-                    .attr('width', 40)
-                    .attr('height', this.heightChart)
+                    .attr('x', 240)
+                    .attr('y', 500 - this.heightChart % 500)
+                    .attr('width', 20)
+                    .attr('height', this.heightChart % 500)
                     .style('fill', '#31708f');
             }
         },
