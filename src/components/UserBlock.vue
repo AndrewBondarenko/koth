@@ -22,7 +22,7 @@ import UserBlockClick from '../components/UserBlockClick';
 .user_block
     display: flex
     width: 40%
-    margin: 40px auto
+    margin: 0 auto
     .user_block-click
         width: 100%
 

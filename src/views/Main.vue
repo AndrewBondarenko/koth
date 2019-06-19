@@ -28,6 +28,6 @@ import UserBlock from '../components/UserBlock.vue';
         display: flex
         width: 100%
         height: 100%
-        margin: 40px auto
+        margin: 0 auto
 
 </style>
