@@ -1,12 +1,12 @@
 <template>
-    <div class="user-chart">
-        <div v-if="heightChart === 0" class="user-chart-message">
+    <div class="user_block_click_chart">
+        <div v-if="heightChart === 0" class="user_block_click_chart-message">
             <h1>P L A Y</h1>
             <h1>or</h1>
-            <h1>D  I  E</h1>
+            <h1>D I E</h1>
             <h1>(it's a joke)</h1>
         </div>
-        <div id="svgChart"></div>
+        <div id="svgChart" :class="{displayMessageOnly: heightChart === 0}"></div>
     </div>
 </template>
 
@@ -38,7 +38,7 @@
                     .append('svg')
                     .attr('width', 500)
                     .attr('height', 400)
-                    .style('background', '#fff')
+                    .style('background', 'none')
                     .append('rect')
                     .attr('x', 240)
                     .attr('y', 400 - this.heightChart % 400)
@@ -51,10 +51,19 @@
 </script>
 
 <style scoped lang="sass">
-.user-chart-message
-    position: absolute
-    display: flex
-    flex-direction: column
-    margin: 0 13.5% 0 13.5%
-    opacity: 0.6
+
+.user_block_click_chart
+    min-height: 400px
+    .user_block_click_chart-message
+        display: flex
+        flex-direction: column
+        height: 400px
+        opacity: 0.6
+    #svgChart
+        margin-top: 0
+        height: 400px
+    .displayMessageOnly
+        display: none
+
+
 </style>

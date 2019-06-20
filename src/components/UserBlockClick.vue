@@ -1,6 +1,5 @@
 <template>
     <div class="user_block_click">
-
         <div class="user_block_click-score">
             <div class="user_block_click-score-item">
                 <h3>Score: </h3>
@@ -16,11 +15,15 @@
                     v-bind:heightChart=this.totalScore
             ></UserBlockClickChart>
         </div>
+        <!--<div class="user_block_click-add-animation">-->
+            <!--<div class="user_block_click-add-animation-item">-->
+                <!--<h3>+1</h3>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="user_block_click-button">
             <button v-on:click="increaseOne">+1</button>
             <button v-on:click="increaseTen">+10</button>
         </div>
-
     </div>
 </template>
 
@@ -65,6 +68,10 @@
     height: 100%
     margin: 40px auto
     border: 1px solid #bbb
+    /*background-image: url("../assets/images/mount1.jpg")*/
+    /*background-repeat: no-repeat*/
+    /*background-size: cover*/
+    /*background-position: center*/
     .user_block_click-score
         display: flex
         flex-direction: column
@@ -75,6 +82,8 @@
             h3
                 padding: 0 5px
                 margin: 3px
+    .user_block_click-chart
+        min-height: 400px
     .user_block_click-button
         margin: auto
         button
