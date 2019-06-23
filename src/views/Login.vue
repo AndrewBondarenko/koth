@@ -9,45 +9,62 @@
             <li class="cloud cloud-small cloud-light"></li>
         </ul>
 
+        <div class="mimimi-cat">
+            <div @click="showCatMessage = !showCatMessage">
+                <img src="../assets/images/dasia_cat_1.png"  width="120" height="120" alt="">
+            </div>
+        </div>
+        <div v-if="showCatMessage === true" class="mimimi-cat-message">
+            <img src="../assets/images/cat_message_1.png"  width="120" height="100" alt="">
+        </div>
     </div>
 
     <div class="login-container">
-
-        <div v-if="true" class="login-modal">
+        <div class="login-modal">
 
             <div class="login-form-title">
                 <div class="login-form-title-authorization">
                     <div @click="switched = 'authorization'" class="login-form-title-authorization-active"
                          :class="{titleAuthorizationPassive : switched === 'registration'}">
-                        LOGIN
+                        <span>SIGN IN</span>
                     </div>
                 </div>
                 <div class="login-form-title-registration">
                     <div @click="switched = 'registration'" class="login-form-title-registration-active"
                          :class="{titleRegistrationPassive : switched === 'authorization'}">
-                        REGISTRATION
+                        <span>SIGN UP</span>
                     </div>
                 </div>
             </div>
 
             <div v-if="switched === 'authorization'" class="authorization-form">
-                <div class="login-input-group" v-bind:class="{ invalidValidation: validation }">
-                    <input v-model="username" type="text" id="name" placeholder="username" />
+                <div class="login-input-field" v-bind:class="{ invalidValidation: validation }">
+                    <input v-model="username" type="text" id="name" placeholder="nickname" />
                 </div>
-                <div class="login-input-group" v-bind:class="{ invalidValidation: validation }">
+                <div class="login-input-field" v-bind:class="{ invalidValidation: validation }">
                     <input v-model="password" type="password" id="password" placeholder="password" />
                 </div>
-                <div @click="log(username, password)" class="login-form-button">LOGIN</div>
+
             </div>
 
             <div v-if="switched === 'registration'" class="registration-form">
-                <div class="login-input-group" v-bind:class="{ invalidValidation: validation }">
+                <div class="login-input-field" v-bind:class="{ invalidValidation: validation }">
                     <input v-model="username" type="text" id="name2" placeholder="nickname" />
                 </div>
-                <div class="login-input-group" v-bind:class="{ invalidValidation: validation }">
+                <div class="login-input-field" v-bind:class="{ invalidValidation: validation }">
                     <input v-model="password" type="password" id="password2" placeholder="password" />
                 </div>
-                <div @click="log(username, password)" class="login-form-button">GO REGISTRATION</div>
+                <div class="login-input-field" v-bind:class="{ invalidValidation: validation }">
+                    <input v-model="password2" type="password" id="password22" placeholder="confirm the password" />
+                </div>
+
+            </div>
+
+            <div v-if="switched === 'authorization'" class="login-form-button">
+                <div @click="log(username, password)" class="form-button">SIGN IN</div>
+            </div>
+            <div v-if="switched === 'registration'" class="login-form-button">
+                <div @click="log(username, password)" class="form-button">SIGN UP</div>
             </div>
 
         </div>
@@ -65,8 +82,10 @@
             return {
                 username: '',
                 password: '',
+                password2: '',
                 error: false,
                 validation: false,
+                showCatMessage: false,
                 switched: 'authorization'
             }
         },
@@ -97,11 +116,17 @@
 </script>
 
 <style scoped lang="sass">
-
+.mimimi-cat
+    display: flex
+    margin: 33% auto auto 57%
+.mimimi-cat-message
+    display: flex
+    margin: -13% auto auto 63%
 .wrap
     width: 100%
     height: 100%
     margin: 0
+    z-index: 2
     position: absolute
     overflow: hidden
     /*border: 10px solid #fff*/
@@ -111,7 +136,7 @@
 
 .cloud-bg
     position: absolute
-    top: 40%
+    top: 50%
     bottom: 0
     left: 0
     right: 0
@@ -129,8 +154,8 @@
 
 
 .cloud
-    -webkit-animation: move-cloud 20s linear infinite
-    animation: move-cloud 20s linear infinite
+    -webkit-animation: move-cloud 25s linear infinite
+    animation: move-cloud 25s linear infinite
     font-size: 1.25em
     position: absolute
     height: 1em
@@ -146,12 +171,12 @@
             left: 25%
             z-index: 1
         &:nth-child(2)
-            top: 47%
-            left: 43%
+            top: 46%
+            left: 30%
             z-index: 1
         &:nth-child(3)
-            top: 50%
-            left: 70%
+            top: 57%
+            left: 75%
             font-size: 0.75em
         &:nth-child(4)
             top: 40%
@@ -224,78 +249,80 @@
         margin: 0
         padding: 0
         box-sizing: border-box
-    .login-modal
-        top: 0
-        left: 0
-        z-index: 3
-        width: 340px
-        height: 40%
-        margin: 105px auto 0 auto
-        padding: 20px
-        display: flex
-        align-items: center
-        justify-content: center
-        flex-direction: column
-        background-color: inherit
-        transform-origin: center center
-    .login-form-title
-        display: flex
-        width: 100%
-        height: 25px
-        justify-content: space-between
-        .login-form-title-authorization, .login-form-title-registration
-            margin: auto 0 0 0
-            cursor: pointer
-            .login-form-title-authorization-active, .login-form-title-registration-active
-                color: #42b983
-                font-size: 24px
-                font-weight: bold
-                margin: auto 0 0 -9px
-                transition-duration: 0.5s
-            .titleAuthorizationPassive,  .titleRegistrationPassive
-                color: #262626
-                font-size: 14px
-                margin: auto 0 0 -5px
-                transition-duration: 0.5s
 
-        /*.login-form-title-registration*/
-            /*margin: auto 0 0 0*/
-            /*.login-form-title-registration-active*/
-                /*color: #42b983*/
-                /*font-size: 24px*/
-                /*font-weight: bold*/
-            /*.titleRegistrationPassive*/
-                /*color: #262626*/
-                /*font-size: 14px*/
+.login-modal
+    top: 0
+    left: 0
+    z-index: 10
+    width: 340px
+    height: 40%
+    margin: 60px auto 0 auto
+    padding: 20px
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    background-color: inherit
+    transform-origin: center center
+
+.authorization-form, .registration-form
+    width: 100%
+    margin: 20px 0 0 0
+
+.login-form-title
+    display: flex
+    width: 100%
+    height: 25px
+    justify-content: space-between
+    flex-direction: row
+    .login-form-title-authorization, .login-form-title-registration
+        margin: auto 0 0 0
+        cursor: pointer
+        .login-form-title-authorization-active, .login-form-title-registration-active
+            color: #237b90
+            font-size: 24px
+            font-weight: bold
+            transition-duration: 0.5s
+        .titleAuthorizationPassive,  .titleRegistrationPassive
+            color: #262626
+            font-size: 14px
+            opacity: 0.8
+            transition-duration: 0.5s
+
+
+
+
+    /*.login-form-title-registration*/
+        /*margin: auto 0 0 0*/
+        /*.login-form-title-registration-active*/
+            /*color: #42b983*/
+            /*font-size: 24px*/
+            /*font-weight: bold*/
+        /*.titleRegistrationPassive*/
+            /*color: #262626*/
+            /*font-size: 14px*/
 
 .login-form-button
     width: 100%
-    padding: 10px
-    color: #42b983
-    margin-top: 30px
-    max-width: 300px
-    font-weight: bold
-    text-align: center
-    border: solid 1.5px #42b983
-    background-color: #fff
-    transition-duration: 0.5s
-    &:hover
-        color: #fff
-        cursor: pointer
-        background-color: #42b983
+    margin: 0 0 0 0
+    .form-button
+        width: 100%
+        padding: 10px
+        color: #237b90
+        margin-top: 30px
+        max-width: 300px
+        font-weight: bold
+        text-align: center
+        border: solid 1.5px #237b90
+        background-color: #96DCF5
         transition-duration: 0.5s
+        &:hover
+            color: #fff
+            cursor: pointer
+            background-color: #237b90
+            transition-duration: 0.5s
 
-
-.authorization-form
-    width: 100%
-    margin: 20px 0 0 0
-
-.registration-form
-    width: 100%
-    margin: 20px 0 0 0
-
-
-.login-input-group
+.login-input-field
     width: 100%
     font-size: 16px
     max-width: 300px
@@ -310,8 +337,11 @@
         padding: 5px 0
         line-height: 1
         font-size: 16px
-        border-bottom: solid 1.5px #42b983
+        border-bottom: solid 1.5px #237b90
         background-color: transparent
+        &::-webkit-input-placeholder
+            color: #237b90
+            font-weight: bold
 
 .invalidValidation
     input
