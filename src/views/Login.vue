@@ -1,4 +1,16 @@
 <template>
+<div>
+    <div class="wrap">
+
+        <ul class="cloud-list">
+            <li class="cloud cloud-big cloud-light"></li>
+            <li class="cloud cloud-small cloud-light"></li>
+            <li class="cloud cloud-big cloud-light"></li>
+            <li class="cloud cloud-small cloud-light"></li>
+        </ul>
+
+    </div>
+
     <div class="login-container">
 
         <div v-if="true" class="login-modal">
@@ -40,6 +52,7 @@
 
         </div>
     </div>
+</div>
 </template>
 
 
@@ -85,6 +98,124 @@
 
 <style scoped lang="sass">
 
+.wrap
+    width: 100%
+    height: 100%
+    margin: 0
+    position: absolute
+    overflow: hidden
+    /*border: 10px solid #fff*/
+    /*background: #96DCF5*/
+    background: #96DCF5 url("../assets/images/mounts_bg_3.png") 0 -200% no-repeat
+
+
+.cloud-bg
+    position: absolute
+    top: 40%
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: #E4EFF3
+    &::before
+        content: ''
+        position: absolute
+        height: 4em
+        width: 4em
+        background-color: #E4EFF3
+        bottom: 110%
+        left: 250px
+        border-radius: 50%
+        box-shadow: -100px 50px 0 4em #E4EFF3, -250px 100px 0 2em #E4EFF3, 75px 100px 0 5em #E4EFF3, 250px 25px 0 4em #E4EFF3, 370px 25px 0 0 #E4EFF3, 400px 125px 0 5em #E4EFF3, 500px 50px 0 2em #E4EFF3, 590px 75px 0 0 #E4EFF3, 690px 75px 0 3em #E4EFF3
+
+
+.cloud
+    -webkit-animation: move-cloud 20s linear infinite
+    animation: move-cloud 20s linear infinite
+    font-size: 1.25em
+    position: absolute
+    height: 1em
+    border-radius: 1em
+
+.cloud-list
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+        &:nth-child(1)
+            top: 55%
+            left: 25%
+            z-index: 1
+        &:nth-child(2)
+            top: 47%
+            left: 43%
+            z-index: 1
+        &:nth-child(3)
+            top: 50%
+            left: 70%
+            font-size: 0.75em
+        &:nth-child(4)
+            top: 40%
+            left: 55%
+            font-size: 0.75em
+
+.cloud-big
+    width: 12.25em
+    &::before
+        content: ''
+        position: absolute
+        bottom: 40%
+        right: 20%
+        height: 1.25em
+        width: 1.25em
+        border-radius: 50%
+        background-color: inherit
+
+.cloud-small
+    width: 5em
+    &::before
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 15%
+        height: 2.25em
+        width: 2.25em
+        border-radius: 50%
+        background-color: inherit
+
+.cloud-dark
+    background-color: #BFD5E0
+    &.cloud-big
+        color: #BFD5E0
+        &::before
+            box-shadow: -1.5em -0.2em 0 0.5em currentColor, -6em -0.5em 0 0.75em currentColor, -8.75em -1.15em 0 1.5em currentColor
+
+.cloud-light
+    background-color: #E4EFF3
+    &.cloud-big
+        color: #E4EFF3
+        &::before
+            box-shadow: -1.5em -0.2em 0 0.5em currentColor, -6em -0.5em 0 0.75em currentColor, -8.75em -1.15em 0 1.5em currentColor
+
+
+@-webkit-keyframes move-cloud
+    0%
+        -webkit-transform: translateX(0)
+        transform: translateX(0)
+
+    100%
+        -webkit-transform: translateX(-200%)
+        transform: translateX(-200%)
+
+
+@keyframes move-cloud
+    0%
+        -webkit-transform: translateX(0)
+        transform: translateX(0)
+
+    100%
+        -webkit-transform: translateX(-200%)
+        transform: translateX(-200%)
+
 .login-container
     display: flex
     width: 100%
@@ -114,16 +245,17 @@
         justify-content: space-between
         .login-form-title-authorization, .login-form-title-registration
             margin: auto 0 0 0
+            cursor: pointer
             .login-form-title-authorization-active, .login-form-title-registration-active
                 color: #42b983
                 font-size: 24px
                 font-weight: bold
-                margin-bottom: 0
+                margin: auto 0 0 -9px
                 transition-duration: 0.5s
             .titleAuthorizationPassive,  .titleRegistrationPassive
                 color: #262626
                 font-size: 14px
-                margin-bottom: 0
+                margin: auto 0 0 -5px
                 transition-duration: 0.5s
 
         /*.login-form-title-registration*/
