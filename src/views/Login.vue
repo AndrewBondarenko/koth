@@ -9,14 +9,17 @@
             <li class="cloud cloud-small cloud-light"></li>
         </ul>
 
-        <div class="mimimi-cat">
-            <div @click="showCatMessage = !showCatMessage">
-                <img src="../assets/images/dasia_cat_1.png"  width="120" height="120" alt="">
+        <div class="login-page-cat">
+            <div class="login-page-cat-support">
+                <div @click="showCatMessage = !showCatMessage">
+                    <img src="../assets/images/dasia_cat_1.png"  alt="">
+                </div>
+            </div>
+            <div v-if="showCatMessage === true" class="login-page-cat-support-message">
+                <img src="../assets/images/cat_message_1.png" alt="">
             </div>
         </div>
-        <div v-if="showCatMessage === true" class="mimimi-cat-message">
-            <img src="../assets/images/cat_message_1.png"  width="120" height="100" alt="">
-        </div>
+
     </div>
 
     <div class="login-container">
@@ -116,12 +119,31 @@
 </script>
 
 <style scoped lang="sass">
-.mimimi-cat
-    display: flex
-    margin: 33% auto auto 57%
-.mimimi-cat-message
-    display: flex
-    margin: -13% auto auto 63%
+
+.login-page-cat
+    position: absolute
+    right: 27%
+    bottom: 20%
+    z-index: 100
+    height: 190px
+    width: 205px
+    .login-page-cat-support
+        width: 120px
+        height: 120px
+        position: absolute
+        margin: 70px auto 0 0
+        img
+            width: 120px
+            height: 120px
+    .login-page-cat-support-message
+        width: 120px
+        height: 100px
+        position: absolute
+        margin: 0 0 auto 85px
+        img
+            width: 120px
+            height: 100px
+
 .wrap
     width: 100%
     height: 100%
@@ -131,7 +153,7 @@
     overflow: hidden
     /*border: 10px solid #fff*/
     /*background: #96DCF5*/
-    background: #96DCF5 url("../assets/images/mounts_bg_3.png") 0 -200% no-repeat
+    background: #96DCF5 url("../assets/images/mounts_bg_3.png") 0 200% repeat-x
 
 
 .cloud-bg

@@ -66,8 +66,8 @@
     flex-direction: column
     width: 100%
     height: 100%
-    margin: 40px auto
-    border: 1px solid #bbb
+    margin: 0 auto 40px auto
+    border: 1.5px solid #237b90
     /*background-image: url("../assets/images/mount1.jpg")*/
     /*background-repeat: no-repeat*/
     /*background-size: cover*/
@@ -90,7 +90,7 @@
             width: 180px
             height: 40px
             background: none
-            border: 2px solid #bbb
+            border: 2px solid #237b90
             margin: 5px
             font-size: 18px
             &:focus

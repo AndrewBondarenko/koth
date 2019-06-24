@@ -33,7 +33,7 @@
         },
         methods: {
             drawSVG: function(){
-                d3.select("svg").remove();
+                d3.select("#svgChart svg").remove();
                 d3.select('#svgChart')
                     .append('svg')
                     .attr('width', 500)
@@ -44,7 +44,7 @@
                     .attr('y', 400 - this.heightChart % 400)
                     .attr('width', 20)
                     .attr('height', this.heightChart % 400)
-                    .style('fill', '#31708f');
+                    .style('fill', '#237b90');
             }
         },
     };
