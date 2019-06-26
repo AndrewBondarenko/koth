@@ -1,26 +1,40 @@
 <template>
     <div class="main">
+
+        <div class="wrap">
+            <ul class="cloud-list">
+                <li class="cloud cloud-big cloud-light"></li>
+                <li class="cloud cloud-small cloud-light"></li>
+                <li class="cloud cloud-big cloud-light"></li>
+                <li class="cloud cloud-small cloud-light"></li>
+            </ul>
+        </div>
+
         <div class="main-container">
 
-            <div class="wrap">
+            <div class="main-container-header">
 
-                <ul class="cloud-list">
-                    <li class="cloud cloud-big cloud-light"></li>
-                    <li class="cloud cloud-small cloud-light"></li>
-                    <li class="cloud cloud-big cloud-light"></li>
-                    <li class="cloud cloud-small cloud-light"></li>
-                </ul>
+                <div class="main-container-header-block">
+                    <HeaderBlock></HeaderBlock>
+                </div>
 
             </div>
 
-            <div class="main-container-block">
-                <TopBlock></TopBlock>
-            </div>
-            <div class="main-container-block">
-                <UserBlock></UserBlock>
-            </div>
-            <div class="main-container-block">
-                <UserBlock></UserBlock>
+            <div class="main-container-content">
+
+                <div class="main-container-content-block">
+                    <TopBlock></TopBlock>
+                </div>
+                <div class="main-container-content-block">
+                    <div class="cat">
+                        <img src="../assets/images/dasia_cat_1.png"  alt="">
+                    </div>
+                    <UserBlock></UserBlock>
+                </div>
+                <div class="main-container-content-block">
+                    <UserBlock></UserBlock>
+                </div>
+
             </div>
 
         </div>
@@ -30,28 +44,59 @@
 <script>
 import UserBlock from '../components/UserBlock.vue';
 import TopBlock from '../components/TopBlock';
+import HeaderBlock from '../components/HeaderBlock'
 
     export default {
         name: "Main",
         components: {
             UserBlock,
-            TopBlock
+            TopBlock,
+            HeaderBlock
         }
     }
 </script>
 
 <style scoped lang="sass">
 
+.cat
+    position: absolute
+    top: 722px
+    left: 764px
+    img
+        height: 80px
+        width: 80px
+        z-index: 1000
+
 .main-container
     display: flex
-    flex-direction: row
+    width: 95%
+    margin: 0 auto
+    flex-direction: column
 
-.main-container-block
+
+.main-container-header
+    display: flex
+    min-height: 240px
+    width: 100%
+    margin: 15px auto
+    z-index: 50
+
+.main-container-header-block
+    width: 100%
+
+.main-container-content
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin: 0
+
+
+.main-container-content-block
     display: flex
     z-index: 20
     width: 30%
     height: 100%
-    margin: 15% auto 0 auto
+    margin: 0
 
 .wrap
     width: 100%
@@ -62,7 +107,7 @@ import TopBlock from '../components/TopBlock';
     overflow: hidden
     /*border: 10px solid #fff*/
     /*background: #96DCF5*/
-    background: #96DCF5 url("../assets/images/mounts_bg_3.png") 0 310% repeat-x
+    background: #96DCF5 url("../assets/images/mount_bg_5.png") -78% 79% repeat-x
 
 
 .cloud-bg

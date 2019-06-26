@@ -79,7 +79,7 @@
     flex-direction: column
     width: 100%
     height: 100%
-    margin: 0 auto 40px auto
+    margin: 0 auto 82px auto
     border: 1.5px solid #237b90
     /*background-image: url("../assets/images/mount1.jpg")*/
     /*background-repeat: no-repeat*/

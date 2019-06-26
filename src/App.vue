@@ -40,7 +40,9 @@ body
 #nav
   padding: 30px
   position: absolute
-  z-index: 1000
+  z-index: 100
+  right: 40px
+  top: 200px
 
   a
     font-weight: bold
