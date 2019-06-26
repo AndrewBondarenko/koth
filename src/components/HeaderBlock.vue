@@ -24,20 +24,38 @@
             </div>
         </div>
         <div class="header_block-user">
-            <div class="header_block-user-name">
-                <h3>PONY500XL</h3>
 
+            <div class="header_block-user-name" @click="displayMenu = !displayMenu">
+                <h3>PONY500XL</h3>
             </div>
+
+            <div class="header_block-user-menu-arrow">
+                <div @click="displayMenu = !displayMenu">
+                    <img src="../assets/images/down_1.png" alt="" :class="{rotateImage: displayMenu}">
+                </div>
+            </div>
+
+            <div v-if="displayMenu" class="header_block-user-menu">
+                <span>LOGOUT</span>
+                <span>SETTING</span>
+            </div>
+
             <div class="header_block-user-icon">
                 <img src="../assets/images/dasia_cat_1.png" alt="">
             </div>
+
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "HeaderBlock"
+        name: "HeaderBlock",
+        data() {
+            return {
+                displayMenu: false,
+            }
+        }
     }
 </script>
 
@@ -62,7 +80,6 @@
             z-index: 90
             top: 0
 
-
         .header_block-kingdom-flag-body
             position: absolute
             z-index: 80
@@ -86,6 +103,38 @@
     .header_block-user-name
         height: auto
         margin: auto
+        display: flex
+        flex-direction: row
+        cursor: pointer
+    .header_block-user-menu-arrow
+        height: auto
+        margin: auto 10px
+        cursor: pointer
+        img
+            height: 30px
+            width: 30px
+            transition: 0.3s
+    .header_block-user-menu
+        position: fixed
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        margin: 90px 0 0 0
+        height: auto
+        padding: 5px 0
+        width: 150px
+        background-color: aliceblue
+        span
+            cursor: pointer
+            font-size: 14px
+            color: #237b90
+            margin: auto
+            padding: 10px 40px
+            &:hover
+                border-top: 1.5px solid #237b90
+                border-bottom: 1.5px solid #237b90
+                padding: 8.5px 40px
+
     .header_block-user-icon
         margin: 15px
         height: 100px
@@ -98,6 +147,7 @@
             height: 80px
             width: 80px
 
-
+.rotateImage
+    transform: rotate(180deg)
 
 </style>
