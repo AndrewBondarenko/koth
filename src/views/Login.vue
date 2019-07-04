@@ -153,7 +153,7 @@
     overflow: hidden
     /*border: 10px solid #fff*/
     /*background: #96DCF5*/
-    background: #96DCF5 url("../assets/images/mounts_bg_3.png") 0 200% repeat-x
+    background: #96DCF5 url("../assets/images/pixel_mount_bg_1.png") 0 200% repeat-x
 
 
 .cloud-bg
@@ -364,6 +364,7 @@
         &::-webkit-input-placeholder
             color: #237b90
             font-weight: bold
+            font-family: 'half_bold_pixel-7regular', Helvetica, Arial, sans-serif
 
 .invalidValidation
     input

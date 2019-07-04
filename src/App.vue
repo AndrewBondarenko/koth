@@ -29,8 +29,17 @@ import Main from './views/Main.vue'
 body
   margin: 0
 
+@font-face
+    font-family: 'half_bold_pixel-7regular'
+    src: url('assets/font/half_bold_pixel-7-webfont.woff2') format('woff2'),
+    url('assets/font/half_bold_pixel-7-webfont.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+
+
 #app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
+  /*font-family: 'Avenir', Helvetica, Arial, sans-serif*/
+  font-family: 'half_bold_pixel-7regular', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center

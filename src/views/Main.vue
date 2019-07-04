@@ -107,7 +107,7 @@ import HeaderBlock from '../components/HeaderBlock'
     overflow: hidden
     /*border: 10px solid #fff*/
     /*background: #96DCF5*/
-    background: #96DCF5 url("../assets/images/mount_bg_5.png") -78% 79% repeat-x
+    background: #96DCF5 url("../assets/images/mount_1.png") -33% 100% no-repeat
 
 
 .cloud-bg
